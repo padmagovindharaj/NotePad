@@ -1,0 +1,5 @@
+com\notepad\NotepadHandsOn\model\notepadModel.class
+com\notepad\NotepadHandsOn\controller\notepadController.class
+com\notepad\NotepadHandsOn\database\notepadRepository.class
+com\notepad\NotepadHandsOn\database\notepadService.class
+com\notepad\NotepadHandsOn\NotepadHandsOnApplication.class
