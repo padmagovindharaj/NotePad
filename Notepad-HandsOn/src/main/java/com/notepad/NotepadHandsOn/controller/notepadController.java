@@ -39,7 +39,8 @@ public class notepadController {
     }
 
     @PutMapping("/updateNotes/{id}")
-    public void editNotes(@PathVariable("id") long id){
+    public void editNotes(@RequestBody notepadModel note,@PathVariable("id") long id){
+        service.editNote(note,id);
         
 
     }
