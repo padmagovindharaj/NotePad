@@ -1,0 +1,16 @@
+https://github.com/in28minutes/spring-microservices-v2/blob/main/02.restful-web-services/01-step-by-step-changes/v2.md
+
+1.post,put,delete,get
+2.validation
+3.exception
+4.swagger
+5.content negatiation (xml,json...)
+6.versioning
+7.filtering (jackson)
+8.actuator
+9.HAL Explorer
+10. MYSQL (switching database)
+11.Security
+
+for postman collection :    
+Share note book.postman_collection.json
