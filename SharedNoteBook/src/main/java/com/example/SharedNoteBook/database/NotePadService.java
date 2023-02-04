@@ -32,6 +32,11 @@ public class NotePadService {
 
     //need to add confition to delete : if title has topic table
     public void deleteTitle(Long id) {
+        List<NotePadTopic> topic = getTopicsUnderTitle(id);
+        if(!topic.isEmpty())
+        {
+            deleteAllTopicUnderTitle(id);
+        }
         notePadTitleRepository.deleteById(id);
     }
 
@@ -42,27 +47,29 @@ public class NotePadService {
 
     // services method for topics
 
-    public void saveTopicsUnderTitle(NotePadTopic topic, Long id) {
+    public NotePadTopic saveTopicsUnderTitle(NotePadTopic topic, Long id) {
         NotePadTitle title = getTilteById(id);
         topic.setTitle(title);
-        notePadTopicRepository.save(topic);
+        return notePadTopicRepository.save(topic);
     }
 
     public List<NotePadTopic> getTopicsUnderTitle(Long id) {
         NotePadTitle title = getTilteById(id);
+        if(title == null)
+            return null;
         return title.getTopic();
     }
 
     public NotePadTopic getTopicUnderTitleById(Long title_id, Long topic_id) {
-        NotePadTitle title = getTilteById(title_id);
-        for(int i=0; i < title.getTopic().size(); i=i+1)
-        {
-            if(title.getTopic().get(i).getId() == topic_id)
-            {
-                return title.getTopic().get(i);
-            }
-        }
-        return null;
+        // NotePadTitle title = getTilteById(title_id);
+        // for(int i=0; title != null && i < title.getTopic().size(); i=i+1)
+        // {
+        //     if(title.getTopic().get(i).getId() == topic_id)
+        //     {
+        //         return title.getTopic().get(i);
+        //     }
+        // }
+        return notePadTopicRepository.findById(topic_id).orElse(null);
     }
 
     public void deleteAllTopicUnderTitle(Long title_id) {

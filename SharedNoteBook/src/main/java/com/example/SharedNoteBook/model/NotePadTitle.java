@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Entity
@@ -22,6 +23,7 @@ public class NotePadTitle {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column
+    @NotEmpty(message = "title must not be empty")
     private String title;
     
     @Column
